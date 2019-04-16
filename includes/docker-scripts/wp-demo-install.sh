@@ -13,11 +13,11 @@ if ! which wp > /dev/null; then
     # Install DEMO WordPress
     cd /var/www/html
     wp core install --allow-root \
-                    --url=localhost \
-                    --title="SDEMO WordPress"  \
+                    --url="http://example.com" \
+                    --title="Elementor Multidomain support"  \
                     --admin_user="admin" \
                     --admin_password="admin" \
-                    --admin_email="admin@localhost.com" \
+                    --admin_email="admin@example.com" \
                     --skip-email
 
     wp --allow-root config set WP_DEBUG true --raw
