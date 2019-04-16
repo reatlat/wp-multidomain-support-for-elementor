@@ -1,0 +1,25 @@
+# Apple macOS
+.DS_Store
+.DS_Store?
+*/.DS_Store
+
+# Node files
+node_modules
+.sass-cache
+
+# IntelliJ IDEA
+.idea
+
+# Work directories
+build/*
+wp-data/*
+temp/*
+release/*
+release_zip/*
+svn/*
+*.zip
+thirstyaffiliates-pro
+
+# Others
+includes/reatlat.md
+!includes/oceanwp-1.6.0.zip
