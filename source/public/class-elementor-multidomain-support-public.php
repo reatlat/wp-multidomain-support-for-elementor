@@ -96,7 +96,7 @@ class Elementor_Multidomain_Support_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/elementor-multidomain-support-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/elementor-multidomain-support-public.min.js', array( 'jquery' ), $this->version, false );
 
 	}
 
