@@ -1,0 +1,1 @@
+# wp-elementor-multidomain-support
