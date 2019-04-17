@@ -77,7 +77,7 @@ class Elementor_Multidomain_Support {
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_admin_hooks();
-		$this->define_public_hooks();
+		// $this->define_public_hooks();  //- I think we don't need it for this plugin
 
 	}
 
@@ -154,7 +154,11 @@ class Elementor_Multidomain_Support {
 
 		$plugin_admin = new Elementor_Multidomain_Support_Admin( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
+        $this->loader->add_action( 'admin_menu', $plugin_admin, 'admin_menu', 700 ); // set after all elementor items :)
+        $this->loader->add_action( 'admin_bar_menu', $plugin_admin, 'update_admin_bar_menu', 210 );
+        $this->loader->add_action( 'post_row_actions', $plugin_admin, 'update_row_actions_link', 12, 2 );
+        $this->loader->add_action( 'page_row_actions', $plugin_admin, 'update_row_actions_link', 12, 2 );
+        $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
 	}
