@@ -96,6 +96,10 @@ class Elementor_Multidomain_Support_Admin
      */
     public function update_row_actions_link($actions, $post)
     {
+        if (!empty($actions['edit'])) {
+            $actions['edit'] = $this->str_replace_domain_name($actions['edit']);
+        }
+
         if (!empty($actions['edit_with_elementor'])) {
             $actions['edit_with_elementor'] = $this->str_replace_domain_name($actions['edit_with_elementor']);
         }
@@ -126,15 +130,15 @@ class Elementor_Multidomain_Support_Admin
                 $lang_default = $GLOBALS['polylang']->options['default_lang'];
                 $arr_domains = $GLOBALS['polylang']->options['domains'];
 
-                if ( $lang_content !== $lang_default ) {
-                    $url = str_replace( $arr_domains[$lang_default], $arr_domains[$lang_content], $url);
+                if ($lang_content !== $lang_default) {
+                    $url = str_replace($arr_domains[$lang_default], $arr_domains[$lang_content], $url);
                 }
 
                 break;
 
             case 'wpml':
                 // TODO: I need the WPML plugin to solve issue
-                
+
                 break;
 
             default:
