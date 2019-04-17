@@ -13,8 +13,23 @@
  */
 ?>
 
-<!-- This file should primarily consist of HTML with a little bit of PHP. -->
-<h1>Hello world</h1>
+    <!-- This file should primarily consist of HTML with a little bit of PHP. -->
+    <div id="EMS-settings-page" class="wrap">
+        <h1><?php _e('Elementor Multidomain Support', 'elementor-multidomain-support'); ?></h1>
+
+        <div class="EMS__wrap">
+
+            <div class="EMS__wrap__content">
+
+            </div>
+
+            <div class="EMS__wrap__sidebar">
+
+            </div>
+
+        </div>
+
+    </div>
 
 
 <?php

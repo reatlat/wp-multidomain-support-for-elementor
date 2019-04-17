@@ -2,3 +2,27 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+
+#EMS-settings-page {
+
+  .EMS__wrap {
+
+    display: flex;
+
+    min-height: 100px;
+    &__content {
+      flex: 70%;
+      min-height: 100px;
+
+    }
+
+    &__sidebar {
+      flex: 30%;
+      min-height: 100px;
+      background-color: red;
+    }
+
+  }
+
+
+}
