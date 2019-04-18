@@ -164,6 +164,44 @@ class Elementor_Multidomain_Support_Admin
         return 'not-founded';
     }
 
+
+    /**
+     * Add danoate and rateit links to plugin meta
+     * @param $actions
+     * @param $plugin_file
+     * @return array
+     * @link https://codex.wordpress.org/Plugin_API/Filter_Reference/plugin_row_meta
+     */
+    public function plugin_row_meta($actions, $plugin_file)
+    {
+        if (strpos($plugin_file, $this->plugin_name . '.php') !== false) {
+            $new_links = array(
+                'donate' => '<a href="https://www.paypal.me/reatlat/' . rand(3, 10) . 'usd" target="_blank"><span class="dashicons dashicons-heart"></span> ' . __('Donate', 'elementor-multidomain-support') . '</a>',
+                'rateit' => '<a href="https://wordpress.org/support/view/plugin-reviews/' . $this->plugin_name . '?rate=5#postform" target="_blank"><span class="dashicons dashicons-star-filled"></span> ' . __('Rate it', 'elementor-multidomain-support') . '</a>'
+            );
+            $actions = array_merge($actions, $new_links);
+        }
+        return $actions;
+    }
+
+
+    /**
+     * Add Settings page link to plugin actions
+     * @param $actions
+     * @param $plugin_file
+     * @return array
+     * @link https://codex.wordpress.org/Plugin_API/Filter_Reference/plugin_action_links_(plugin_file_name)
+     */
+    public function plugin_action_links($actions, $plugin_file)
+    {
+        if (strpos($plugin_file, $this->plugin_name . '.php') !== false) {
+            $settings_link = '<a href="admin.php?page=' . $this->plugin_name . '-settings">' . __('Settings', 'campaign-url-builder') . '</a>';
+            array_unshift($actions, $settings_link);
+        }
+        return $actions;
+    }
+
+
     /**
      * Register the stylesheets for the admin area.
      *

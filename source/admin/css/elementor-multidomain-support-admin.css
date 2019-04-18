@@ -1,2 +1,2 @@
-#EMS-settings-page .EMS__wrap{display:-webkit-box;display:-ms-flexbox;display:flex;min-height:100px}#EMS-settings-page .EMS__wrap__content{-webkit-box-flex:70%;-ms-flex:70%;flex:70%;min-height:100px}#EMS-settings-page .EMS__wrap__sidebar{-webkit-box-flex:30%;-ms-flex:30%;flex:30%;min-height:100px;background-color:red}
+#EMS-settings-page .EMS__wrap{display:-webkit-box;display:-ms-flexbox;display:flex;min-height:100px}#EMS-settings-page .EMS__wrap__content{-webkit-box-flex:70%;-ms-flex:70%;flex:70%}#EMS-settings-page .EMS__wrap__sidebar{-webkit-box-flex:30%;-ms-flex:30%;flex:30%;min-width:400px;background-color:red}
 /*# sourceMappingURL=elementor-multidomain-support-admin.css.map */

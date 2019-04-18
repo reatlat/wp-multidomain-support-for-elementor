@@ -12,13 +12,12 @@
     min-height: 100px;
     &__content {
       flex: 70%;
-      min-height: 100px;
 
     }
 
     &__sidebar {
       flex: 30%;
-      min-height: 100px;
+      min-width: 400px;
       background-color: red;
     }
 
