@@ -11,6 +11,9 @@
  * @package    Elementor_Multidomain_Support
  * @subpackage Elementor_Multidomain_Support/admin/partials
  */
+
+$plugin = new Elementor_Multidomain_Support_Admin($this->plugin_name, $this->version);
+
 ?>
 
     <!-- This file should primarily consist of HTML with a little bit of PHP. -->
