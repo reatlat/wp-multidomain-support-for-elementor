@@ -2,26 +2,90 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+@import "vars";
+@import "mixins";
 
 #EMS-settings-page {
 
   .EMS__wrap {
 
-    display: flex;
-
-    min-height: 100px;
     &__content {
-      flex: 70%;
 
-    }
+      display: flex;
+      min-height: 100px;
 
-    &__sidebar {
-      flex: 30%;
-      min-width: 400px;
-      background-color: red;
+      .content__main {
+        flex: 70%;
+      }
+      .content__sidebar {
+        padding: 30px 0 0 30px;
+
+        flex: 30%;
+        min-width: 400px;
+        min-height: 100px;
+
+
+        .ems-banner {
+          margin-bottom: 30px;
+
+          &--rate-it {
+            background: linear-gradient(to bottom, $blue 0%, $blue calc(50% + 20px), $deepsea calc(50% + 20px), $deepsea 100%);
+            a {
+              text-decoration: none;
+              min-height: 100px;
+              display: block;
+              text-align: center;
+              @include transit();
+              .reatlat_promote_title {
+                display: block;
+                color: $sunflower;
+                padding: 10px 0 0;
+                margin: auto;
+              }
+              img {
+                margin: auto;
+                max-width: 200px;
+                @include transit();
+              }
+              &:hover img {
+                transform: scale(1.15);
+              }
+            }
+          }
+          &--utm-builder {
+
+          }
+          &--langflag {
+
+          }
+          &--promo {
+
+          }
+          &--buy-me-coffee {
+            background: $sunflower;
+            a {
+              display: block;
+              text-align: center;
+              padding: 10px;
+              @include transit();
+              &:hover {
+                transform: scale(1.15);
+              }
+              img {
+                margin: auto;
+                max-width: 300px;
+                width: 100%;
+              }
+            }
+          }
+          &--author {
+
+          }
+        }
+      }
+
     }
 
   }
-
 
 }

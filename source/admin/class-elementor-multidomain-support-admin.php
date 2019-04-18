@@ -153,7 +153,7 @@ class Elementor_Multidomain_Support_Admin
      * @return string
      * @since 1.0.0
      */
-    private function get_wpml_plugin_name()
+    public function get_wpml_plugin_name()
     {
         if (defined('POLYLANG') && !empty(POLYLANG))
             return 'polylang';

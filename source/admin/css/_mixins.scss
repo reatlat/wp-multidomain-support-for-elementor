@@ -1,0 +1,4 @@
+@mixin transit($param: all, $time: .25s, $effect: ease) {
+  transition: $param $time $effect;
+}
+

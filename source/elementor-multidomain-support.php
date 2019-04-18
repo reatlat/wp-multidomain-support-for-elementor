@@ -17,8 +17,9 @@
  * Plugin URI:        https://github.com/reatlat/wp-elementor-multidomain-support
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
  * Version:           1.0.0
- * Author:            Alex Zappa
+ * Author:            Alex Zappa a.k.a. re[at]lat
  * Author URI:        https://reatlat.net
+ * Donate link:       https://www.paypal.me/reatlat/5usd
  * License:           GPL-3.0+
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain:       elementor-multidomain-support
