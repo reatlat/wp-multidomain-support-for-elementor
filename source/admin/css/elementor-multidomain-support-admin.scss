@@ -17,6 +17,7 @@
       .content__main {
         flex: 70%;
       }
+
       .content__sidebar {
         padding: 30px 0 0 30px;
 
@@ -26,51 +27,75 @@
 
 
         .ems-banner {
-          margin-bottom: 30px;
+          background-color: $white;
+          padding: 10px;
+          margin: 0 0 30px;
+          border: 1px solid #E5E5E5;
+          position: relative;
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+          overflow: hidden;
 
           &--rate-it {
             background: linear-gradient(to bottom, $blue 0%, $blue calc(50% + 20px), $deepsea calc(50% + 20px), $deepsea 100%);
+
             a {
               text-decoration: none;
               min-height: 100px;
               display: block;
               text-align: center;
               @include transit();
+
               .reatlat_promote_title {
                 display: block;
                 color: $sunflower;
                 padding: 10px 0 0;
                 margin: auto;
               }
+
               img {
                 margin: auto;
                 max-width: 200px;
                 @include transit();
               }
+
               &:hover img {
                 transform: scale(1.15);
               }
             }
           }
-          &--utm-builder {
 
-          }
+          &--utm-builder,
           &--langflag {
+            padding: 0;
 
+            a {
+              display: block;
+
+              img {
+                width: 100%;
+                height: auto;
+                display: block;
+              }
+            }
           }
+
           &--promo {
 
           }
+
           &--buy-me-coffee {
             background: $sunflower;
+
             a {
               display: block;
               text-align: center;
               padding: 10px;
               @include transit();
+
               &:hover {
                 transform: scale(1.15);
               }
+
               img {
                 margin: auto;
                 max-width: 300px;
@@ -78,8 +103,32 @@
               }
             }
           }
-          &--author {
 
+          &--author {
+            img {
+              float: left;
+              width: 80px;
+              height: 80px;
+              margin-right: 15px;
+            }
+
+            h3 {
+              padding-top: 5px;
+              margin-bottom: 0;
+            }
+
+            h4 {
+              margin: 0;
+            }
+          }
+
+          &--techstack {
+            text-align: center;
+
+            img {
+              width: 20%;
+              padding: 0 3%;
+            }
           }
         }
       }
