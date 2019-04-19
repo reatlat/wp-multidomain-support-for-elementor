@@ -15,14 +15,14 @@
       min-height: 100px;
 
       .content__main {
-        flex: 70%;
+        flex: calc(100% - 350px);
       }
 
       .content__sidebar {
         padding: 30px 0 0 30px;
 
-        flex: 30%;
-        min-width: 400px;
+        flex: 350px;
+        min-width: 350px;
         min-height: 100px;
 
 
