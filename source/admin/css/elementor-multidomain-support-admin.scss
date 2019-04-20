@@ -15,7 +15,10 @@
       min-height: 100px;
 
       .content__main {
-        flex: calc(100% - 350px);
+        // here is magic 🦄‍🏳️‍🌈‍ Voodoo People Magic People
+        width: calc(100% - 550px);
+        flex: calc(100% - 550px);
+        float: left;
 
         .content__main__not-founded {
           border: 1px solid rgba($red, .4);
@@ -23,6 +26,28 @@
           padding: 10px;
           margin: 30px 0;
         }
+
+        .server-config {
+          border: 1px solid rgba($default, .4);
+          background-color: rgba($default, .1);
+          margin: 30px 0;
+          width: 100%;
+          overflow-x: auto;
+
+
+          pre {
+            margin: 0;
+            padding: 0 15px;
+            background-color: transparent;
+            code {
+              background-color: transparent;
+              padding: 0;
+              font-family: monospace;
+
+            }
+          }
+        }
+
       }
 
       .content__sidebar {

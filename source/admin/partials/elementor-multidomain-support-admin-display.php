@@ -24,7 +24,7 @@ $plugin = new Elementor_Multidomain_Support_Admin($this->plugin_name, $this->ver
 
             <div id="elementor-settings-tabs-wrapper" class="nav-tab-wrapper EMS__wrap__navigation-tabs">
                 <?php if ($plugin->get_wpml_plugin_name() !== 'not-founded') : ?>
-                     <a id="elementor-settings-tab-general" class="nav-tab nav-tab-active" href="#tab-general">
+                    <a id="elementor-settings-tab-general" class="nav-tab nav-tab-active" href="#tab-general">
                         <?php _e('General', 'elementor-multidomain-support'); ?></a>
                     <a id="elementor-settings-tab-server" class="nav-tab" href="#tab-server">
                         <?php _e('Server settings', 'elementor-multidomain-support'); ?></a>
@@ -38,27 +38,61 @@ $plugin = new Elementor_Multidomain_Support_Admin($this->plugin_name, $this->ver
                     <?php if ($plugin->get_wpml_plugin_name() !== 'not-founded') : ?>
 
                         <div id="tab-general" class="elementor-settings-form-page elementor-active">
-                            AAA
+
                         </div>
 
                         <div id="tab-server" class="elementor-settings-form-page">
-                            BBB
+
+                            <div class="server-info">
+                                your server is <?php echo $plugin->get_server_name()[0]; ?>
+                            </div>
+
+                            <h2><?php _e('Apache .htaccess file configuration', 'elementor-settings-form'); ?></h2>
+                            <div class="server-config server-config--apache">
+<pre><code>
+# ----------------------------------------------------------------------
+# Allow Cross-Origin Resource Sharing (CORS)
+# ----------------------------------------------------------------------
+&lt;FilesMatch &quot;\.(css|js|ttf|ttc|eot|woff|woff2|otf|svg|gif|ico|webp|png|jpe?g)$&quot;&gt;
+&lt;IfModule mod_headers.c&gt;
+    SetEnvIf Origin &quot;http(s)?://(www\.)?(<?php echo implode('|', $plugin->get_domains(true, true)); ?>)$&quot; AccessControlAllowOrigin=$0
+    Header add Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
+    Header merge Vary Origin
+&lt;/IfModule&gt;
+&lt;/FilesMatch&gt;
+
+</code></pre>
+                            </div>
+
+                            <h2><?php _e('Configuration for NGINX server', 'elementor-settings-form'); ?></h2>
+                            <div class="server-config server-config--nginx">
+<pre><code>
+location ~* \.(?:css|js|ttf|ttc|eot|woff|woff2|otf|svg|gif|ico|webp|png|jpe?g)$ {
+   if ( $http_origin ~* (https?://(.+\.)?(<?php echo implode('|', $plugin->get_domains(true, true)); ?>)$) ) {
+      add_header &quot;Access-Control-Allow-Origin&quot; &quot;$http_origin&quot;;
+      add_header &quot;Vary&quot; &quot;Origin&quot;;
+   }
+}
+
+</code></pre>
+                            </div>
+
                         </div>
 
                     <?php else : ?>
 
                         <div class="content__main__not-founded">
-                            <h2><?php _e("We don't recognize your multi language plugin on your WP", 'elementor-multidomain-support'); ?></h2>
+                            <h2><?php _e("We don't recognize your multilingual plugin on your WP", 'elementor-multidomain-support'); ?></h2>
                             <h3><?php _e('We support next plugins:', 'elementor-settings-form'); ?></h3>
                             <ul>
                                 <li>
-                                    <a href="https://wpml.org/" target="_blank">
-                                        <?php _e('WPML - The WordPress Multilingual Plugin', 'elementor-settings-form'); ?>
+                                    <a href="https://polylang.pro/" target="_blank">
+                                        <?php _e('Polylang – Making WordPress multilingual', 'elementor-settings-form'); ?>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://polylang.pro/" target="_blank">
-                                        <?php _e('Polylang – Making WordPress multilingual', 'elementor-settings-form'); ?>
+                                    <a href="https://wpml.org/" target="_blank">
+                                        <?php _e('WPML - The WordPress Multilingual Plugin', 'elementor-settings-form'); ?>
                                     </a>
                                 </li>
                             </ul>

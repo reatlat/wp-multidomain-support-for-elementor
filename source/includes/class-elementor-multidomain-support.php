@@ -165,6 +165,7 @@ class Elementor_Multidomain_Support
         $this->loader->add_action('page_row_actions', $plugin_admin, 'update_row_actions_link', 12, 2);
         $this->loader->add_filter('plugin_action_links', $plugin_admin,'plugin_action_links', 10, 5);
         $this->loader->add_filter('plugin_row_meta', $plugin_admin, 'plugin_row_meta', 10, 3);
+        // TODO: add quick buttons support like plus button on Polylang plugin
         $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
         //$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 

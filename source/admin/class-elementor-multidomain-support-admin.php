@@ -124,25 +124,14 @@ class Elementor_Multidomain_Support_Admin
 
     private function str_replace_domain_name($url)
     {
-        switch ($this->get_wpml_plugin_name()) {
-            case 'polylang':
-                $lang_content = pll_get_post_language(get_the_ID());
-                $lang_default = $GLOBALS['polylang']->options['default_lang'];
-                $arr_domains = $GLOBALS['polylang']->options['domains'];
+        if ($this->get_wpml_plugin_name() !== 'not-founded') {
+            $lang_content = $this->get_content_lang();
+            $lang_default = $this->get_default_lang();
+            $domains = $this->get_domains();
 
-                if ($lang_content !== $lang_default) {
-                    $url = str_replace($arr_domains[$lang_default], $arr_domains[$lang_content], $url);
-                }
-
-                break;
-
-            case 'wpml':
-                // TODO: I need the WPML plugin to solve issue
-
-                break;
-
-            default:
-                break;
+            if ($lang_content !== $lang_default) {
+                $url = str_replace($domains[$lang_default], $domains[$lang_content], $url);
+            }
         }
 
         return $url;
@@ -162,6 +151,109 @@ class Elementor_Multidomain_Support_Admin
             return 'wpml';
 
         return 'not-founded';
+    }
+
+    /**
+     * Get Server name
+     * @return array
+     * @since 1.0.0
+     */
+    public function get_server_name()
+    {
+        $server_info = explode('/', $_SERVER["SERVER_SOFTWARE"]);
+        return $server_info;
+    }
+
+
+    /**
+     * Get domains array
+     * @param bool $strip
+     * @return array
+     * @since 1.0.0
+     */
+    public function get_domains($trim = false, $esc_attr = false)
+    {
+
+        switch ($this->get_wpml_plugin_name()) {
+            case 'polylang':
+                $domains = $GLOBALS['polylang']->options['domains'];
+                break;
+
+            case 'wpml':
+                // TODO: I need the WPML plugin to solve issue
+                $domains = '';
+                break;
+
+            default:
+                $domains = '';
+                break;
+        }
+
+        if ($trim) {
+            foreach ($domains as $lang_key => $domain) {
+                $domains[$lang_key] = explode('://', $domain)[1];
+            }
+        }
+
+        if ($esc_attr) {
+            foreach ($domains as $lang_key => $domain) {
+                $domains[$lang_key] = str_replace('.', '\.', $domain);
+            }
+        }
+
+        return $domains;
+    }
+
+
+    /**
+     * Get content language key
+     * @return string
+     * @since 1.0.0
+     */
+    private function get_content_lang()
+    {
+        switch ($this->get_wpml_plugin_name()) {
+            case 'polylang':
+                $lang_key = pll_get_post_language(get_the_ID());
+                break;
+
+            case 'wpml':
+                // TODO: I need the WPML plugin to solve issue
+                $lang_key = 'en';
+                break;
+
+            default:
+                $lang_key = 'en';
+                break;
+        }
+
+        return $lang_key;
+    }
+
+
+    /**
+     * Get default language key
+     * @return string
+     * @since 1.0.0
+     */
+    private function get_default_lang()
+    {
+        switch ($this->get_wpml_plugin_name()) {
+            case 'polylang':
+                $lang_key = $GLOBALS['polylang']->options['default_lang'];
+                break;
+
+            case 'wpml':
+                // TODO: I need the WPML plugin to solve issue
+                $lang_key = 'en';
+                break;
+
+            default:
+                $lang_key = 'en';
+                break;
+        }
+
+        return $lang_key;
     }
 
 
@@ -201,6 +293,18 @@ class Elementor_Multidomain_Support_Admin
         return $actions;
     }
 
+
+    public function get_server_origin()
+    {
+        if (array_key_exists('HTTP_ORIGIN', $_SERVER)) {
+            $origin = $_SERVER['HTTP_ORIGIN'];
+        } else if (array_key_exists('HTTP_REFERER', $_SERVER)) {
+            $origin = $_SERVER['HTTP_REFERER'];
+        } else {
+            $origin = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST']; // in theory should be IP $_SERVER['REMOTE_ADDR'];
+        }
+        return $origin;
+    }
 
     /**
      * Register the stylesheets for the admin area.
