@@ -44,10 +44,21 @@ $plugin = new Elementor_Multidomain_Support_Admin($this->plugin_name, $this->ver
                         <div id="tab-server" class="elementor-settings-form-page">
 
                             <div class="server-info">
-                                your server is <?php echo $plugin->get_server_name()[0]; ?>
+                                <h2><?php printf(
+                                        __('Your server runs on %s', 'elementor-settings-form'),
+                                        '<span class="green">' . $plugin->get_server_name()[0] . '</span>'); ?></h2>
                             </div>
 
-                            <h2><?php _e('Apache .htaccess file configuration', 'elementor-settings-form'); ?></h2>
+                            <div class="content__main__warning">
+                                <h1>!!! <?php _e('WARNING', 'elementor-settings-form'); ?> !!!</h1>
+                                <h3><?php _e('It is very important to be extremely attentive when making changes to .htaccess file or nginx.vhost. If after making changes your site stops functioning the plugin author not responsible for your changes in server configuration.', ''); ?></h3>
+                            </div>
+
+                            <hr>
+
+                            <h2><?php _e('Server settings', 'elementor-settings-form'); ?>:</h2>
+                            <h3><?php _e('Advanced solution', 'elementor-settings-form'); ?></h3>
+                            <h4><?php _e('Apache .htaccess file configuration', 'elementor-settings-form'); ?></h4>
                             <div class="server-config server-config--apache">
 <pre><code>
 # ----------------------------------------------------------------------
@@ -64,15 +75,47 @@ $plugin = new Elementor_Multidomain_Support_Admin($this->plugin_name, $this->ver
 </code></pre>
                             </div>
 
-                            <h2><?php _e('Configuration for NGINX server', 'elementor-settings-form'); ?></h2>
+                            <h4><?php _e('Configuration for NGINX server', 'elementor-settings-form'); ?></h4>
                             <div class="server-config server-config--nginx">
 <pre><code>
+# ----------------------------------------------------------------------
+# Allow Cross-Origin Resource Sharing (CORS)
+# ----------------------------------------------------------------------
 location ~* \.(?:css|js|ttf|ttc|eot|woff|woff2|otf|svg|gif|ico|webp|png|jpe?g)$ {
    if ( $http_origin ~* (https?://(.+\.)?(<?php echo implode('|', $plugin->get_domains(true, true)); ?>)$) ) {
       add_header &quot;Access-Control-Allow-Origin&quot; &quot;$http_origin&quot;;
       add_header &quot;Vary&quot; &quot;Origin&quot;;
    }
 }
+
+</code></pre>
+                            </div>
+
+                            <hr>
+
+                            <h3><?php _e('Easy solution, but also will work (NOT RECOMMENDED)', 'elementor-settings-form'); ?></h3>
+                            <h4><?php _e('For Apache add headers to .htaccess file', 'elementor-settings-form'); ?></h4>
+                            <div class="server-config server-config--apache">
+<pre><code>
+# ----------------------------------------------------------------------
+# Allow Cross-Origin Resource Sharing (CORS)
+# ----------------------------------------------------------------------
+&lt;IfModule mod_headers.c&gt;
+    Header add Access-Control-Allow-Origin &quot;*&quot;
+    Header merge Vary Origin
+&lt;/IfModule&gt;
+
+</code></pre>
+                            </div>
+
+                            <h4><?php _e('For NGINX add headers to .vhost file in any section', 'elementor-settings-form'); ?></h4>
+                            <div class="server-config server-config--nginx">
+<pre><code>
+# ----------------------------------------------------------------------
+# Allow Cross-Origin Resource Sharing (CORS)
+# ----------------------------------------------------------------------
+add_header &quot;Access-Control-Allow-Origin&quot; &quot;*&quot;;
+add_header &quot;Vary&quot; &quot;Origin&quot;;
 
 </code></pre>
                             </div>

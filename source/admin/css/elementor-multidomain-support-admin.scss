@@ -20,6 +20,11 @@
         flex: calc(100% - 550px);
         float: left;
 
+        h4 {
+          margin-bottom: 10px;
+        }
+
+        .content__main__warning,
         .content__main__not-founded {
           border: 1px solid rgba($red, .4);
           background-color: rgba($red, .1);
@@ -27,10 +32,18 @@
           margin: 30px 0;
         }
 
+        .content__main__warning {
+          text-align: center;
+
+          * {
+            color: $red;
+          }
+        }
+
         .server-config {
           border: 1px solid rgba($default, .4);
           background-color: rgba($default, .1);
-          margin: 30px 0;
+          margin: 10px 0 30px;
           width: 100%;
           overflow-x: auto;
 
@@ -169,4 +182,9 @@
 
   }
 
+
+  // helpers
+  .green {
+    color: $green !important;
+  }
 }
