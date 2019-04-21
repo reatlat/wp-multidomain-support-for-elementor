@@ -14,6 +14,8 @@
 
 $plugin = new Elementor_Multidomain_Support_Admin($this->plugin_name, $this->version);
 
+$domains = $plugin->get_domains('domain');
+$esc_domains = str_replace('.', '\.', implode('|', $domains));
 ?>
 
     <!-- This file should primarily consist of HTML with a little bit of PHP. -->
@@ -23,21 +25,45 @@ $plugin = new Elementor_Multidomain_Support_Admin($this->plugin_name, $this->ver
         <div class="EMS__wrap">
 
             <div id="elementor-settings-tabs-wrapper" class="nav-tab-wrapper EMS__wrap__navigation-tabs">
-                <?php if ($plugin->get_wpml_plugin_name() !== 'not-founded') : ?>
-                    <a id="elementor-settings-tab-general" class="nav-tab nav-tab-active" href="#tab-general">
-                        <?php _e('General', 'elementor-multidomain-support'); ?></a>
-                    <a id="elementor-settings-tab-server" class="nav-tab" href="#tab-server">
-                        <?php _e('Server settings', 'elementor-multidomain-support'); ?></a>
-                <?php endif; ?>
+                <a id="elementor-settings-tab-general" class="nav-tab nav-tab-active" href="#tab-general">
+                    <?php _e('General', 'elementor-multidomain-support'); ?></a>
+                <a id="elementor-settings-tab-server" class="nav-tab" href="#tab-server">
+                    <?php _e('Server settings', 'elementor-multidomain-support'); ?></a>
             </div>
 
             <div class="EMS__wrap__content">
 
                 <div id="elementor-settings-form" class="content__main">
 
-                    <?php if ($plugin->get_wpml_plugin_name() !== 'not-founded') : ?>
 
                         <div id="tab-general" class="elementor-settings-form-page elementor-active">
+
+                            <?php if ($plugin->get_wpml_plugin_name() === 'not-founded') : ?>
+                                <div class="content__main__notice updated error inline">
+                                    <p><?php _e('Plugin work in universal mode, perhaps some functions will work incorrectly', 'elementor-multidomain-support'); ?></p>
+                                </div>
+                                <div class="content__main__not-founded notice notice-alt notice-error error inline">
+                                    <h2><?php _e("We don't recognize your multilingual plugin on your WP", 'elementor-multidomain-support'); ?></h2>
+                                    <h3><?php _e('We support next plugins:', 'elementor-multidomain-support'); ?></h3>
+                                    <ul>
+                                        <li>
+                                            <a href="https://polylang.pro/" target="_blank">
+                                                <?php _e('Polylang – Making WordPress multilingual', 'elementor-multidomain-support'); ?>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://wpml.org/" target="_blank">
+                                                <?php _e('WPML - The WordPress Multilingual Plugin', 'elementor-multidomain-support'); ?>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                    <p><?php printf(
+                                            __("Use another plugin? Open issue %shere%s.", 'elementor-multidomain-support'),
+                                            '<a href="https://github.com/reatlat/wp-elementor-multidomain-support/issues" target="_blank">',
+                                            '</a>'); ?></p>
+                                </div>
+                            <?php endif; ?>
 
                         </div>
 
@@ -45,20 +71,20 @@ $plugin = new Elementor_Multidomain_Support_Admin($this->plugin_name, $this->ver
 
                             <div class="server-info">
                                 <h2><?php printf(
-                                        __('Your server runs on %s', 'elementor-settings-form'),
+                                        __('Your server runs on %s', 'elementor-multidomain-support'),
                                         '<span class="green">' . $plugin->get_server_name()[0] . '</span>'); ?></h2>
                             </div>
 
-                            <div class="content__main__warning">
-                                <h1>!!! <?php _e('WARNING', 'elementor-settings-form'); ?> !!!</h1>
+                            <div class="content__main__warning notice notice-alt notice-error error inline">
+                                <h1>!!! <?php _e('WARNING', 'elementor-multidomain-support'); ?> !!!</h1>
                                 <h3><?php _e('It is very important to be extremely attentive when making changes to .htaccess file or nginx.vhost. If after making changes your site stops functioning the plugin author not responsible for your changes in server configuration.', ''); ?></h3>
                             </div>
 
                             <hr>
 
-                            <h2><?php _e('Server settings', 'elementor-settings-form'); ?>:</h2>
-                            <h3><?php _e('Advanced solution', 'elementor-settings-form'); ?></h3>
-                            <h4><?php _e('Apache .htaccess file configuration', 'elementor-settings-form'); ?></h4>
+                            <h2><?php _e('Server settings', 'elementor-multidomain-support'); ?>:</h2>
+                            <h3><?php _e('Advanced solution', 'elementor-multidomain-support'); ?></h3>
+                            <h4><?php _e('Apache .htaccess file configuration', 'elementor-multidomain-support'); ?></h4>
                             <div class="server-config server-config--apache">
 <pre><code>
 # ----------------------------------------------------------------------
@@ -66,7 +92,7 @@ $plugin = new Elementor_Multidomain_Support_Admin($this->plugin_name, $this->ver
 # ----------------------------------------------------------------------
 &lt;FilesMatch &quot;\.(css|js|ttf|ttc|eot|woff|woff2|otf|svg|gif|ico|webp|png|jpe?g)$&quot;&gt;
 &lt;IfModule mod_headers.c&gt;
-    SetEnvIf Origin &quot;http(s)?://(www\.)?(<?php echo implode('|', $plugin->get_domains(true, true)); ?>)$&quot; AccessControlAllowOrigin=$0
+    SetEnvIf Origin &quot;http(s)?://(www\.)?(<?php echo $esc_domains; ?>)$&quot; AccessControlAllowOrigin=$0
     Header add Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
     Header merge Vary Origin
 &lt;/IfModule&gt;
@@ -75,14 +101,14 @@ $plugin = new Elementor_Multidomain_Support_Admin($this->plugin_name, $this->ver
 </code></pre>
                             </div>
 
-                            <h4><?php _e('Configuration for NGINX server', 'elementor-settings-form'); ?></h4>
+                            <h4><?php _e('Configuration for NGINX server', 'elementor-multidomain-support'); ?></h4>
                             <div class="server-config server-config--nginx">
 <pre><code>
 # ----------------------------------------------------------------------
 # Allow Cross-Origin Resource Sharing (CORS)
 # ----------------------------------------------------------------------
 location ~* \.(?:css|js|ttf|ttc|eot|woff|woff2|otf|svg|gif|ico|webp|png|jpe?g)$ {
-   if ( $http_origin ~* (https?://(.+\.)?(<?php echo implode('|', $plugin->get_domains(true, true)); ?>)$) ) {
+   if ( $http_origin ~* (https?://(.+\.)?(<?php echo $esc_domains; ?>)$) ) {
       add_header &quot;Access-Control-Allow-Origin&quot; &quot;$http_origin&quot;;
       add_header &quot;Vary&quot; &quot;Origin&quot;;
    }
@@ -93,8 +119,8 @@ location ~* \.(?:css|js|ttf|ttc|eot|woff|woff2|otf|svg|gif|ico|webp|png|jpe?g)$ 
 
                             <hr>
 
-                            <h3><?php _e('Easy solution, but also will work (NOT RECOMMENDED)', 'elementor-settings-form'); ?></h3>
-                            <h4><?php _e('For Apache add headers to .htaccess file', 'elementor-settings-form'); ?></h4>
+                            <h3><?php _e('Easy solution, but also will work (NOT RECOMMENDED)', 'elementor-multidomain-support'); ?></h3>
+                            <h4><?php _e('For Apache add headers to .htaccess file', 'elementor-multidomain-support'); ?></h4>
                             <div class="server-config server-config--apache">
 <pre><code>
 # ----------------------------------------------------------------------
@@ -108,7 +134,7 @@ location ~* \.(?:css|js|ttf|ttc|eot|woff|woff2|otf|svg|gif|ico|webp|png|jpe?g)$ 
 </code></pre>
                             </div>
 
-                            <h4><?php _e('For NGINX add headers to .vhost file in any section', 'elementor-settings-form'); ?></h4>
+                            <h4><?php _e('For NGINX add headers to .vhost file in any section', 'elementor-multidomain-support'); ?></h4>
                             <div class="server-config server-config--nginx">
 <pre><code>
 # ----------------------------------------------------------------------
@@ -121,32 +147,6 @@ add_header &quot;Vary&quot; &quot;Origin&quot;;
                             </div>
 
                         </div>
-
-                    <?php else : ?>
-
-                        <div class="content__main__not-founded">
-                            <h2><?php _e("We don't recognize your multilingual plugin on your WP", 'elementor-multidomain-support'); ?></h2>
-                            <h3><?php _e('We support next plugins:', 'elementor-settings-form'); ?></h3>
-                            <ul>
-                                <li>
-                                    <a href="https://polylang.pro/" target="_blank">
-                                        <?php _e('Polylang – Making WordPress multilingual', 'elementor-settings-form'); ?>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://wpml.org/" target="_blank">
-                                        <?php _e('WPML - The WordPress Multilingual Plugin', 'elementor-settings-form'); ?>
-                                    </a>
-                                </li>
-                            </ul>
-
-                            <p><?php printf(
-                                    __("Use another plugin? Open issue %shere%s.", 'elementor-settings-form'),
-                                    '<a href="https://github.com/reatlat/wp-elementor-multidomain-support/issues" target="_blank">',
-                                    '</a>'); ?></p>
-                        </div>
-
-                    <?php endif; ?>
 
                 </div>
 
