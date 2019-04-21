@@ -127,7 +127,7 @@ class Elementor_Multidomain_Support_Admin
         if ($this->get_wpml_plugin_name() !== 'not-founded') {
             $lang_content = $this->get_content_lang();
             $lang_default = $this->get_default_lang();
-            $domains = $this->get_domains();
+            $domains = $this->get_domains('domain');
 
             if ($lang_content !== $lang_default) {
                 $url = str_replace($domains[$lang_default], $domains[$lang_content], $url);
@@ -165,39 +165,71 @@ class Elementor_Multidomain_Support_Admin
     }
 
 
-    /**
-     * Get domains array
-     * @param bool $strip
-     * @return array
-     * @since 1.0.0
-     */
-    public function get_domains($trim = false, $esc_attr = false)
+    public function get_languages()
     {
+        $languages = array();
 
+        if (function_exists('icl_get_languages')) {
+            $languages = icl_get_languages();
+        }
+
+        if (!is_array($languages))
+            return array();
+
+        return $languages;
+    }
+
+
+    private function get_current_language()
+    {
         switch ($this->get_wpml_plugin_name()) {
-            case 'polylang':
-                $domains = $GLOBALS['polylang']->options['domains'];
+            case 'polylang';
+                return pll_current_language();
                 break;
 
             case 'wpml':
-                // TODO: I need the WPML plugin to solve issue
-                $domains = '';
+                return apply_filters( 'wpml_current_language', null );
                 break;
 
             default:
-                $domains = '';
+                return 'en';
                 break;
         }
+    }
 
-        if ($trim) {
-            foreach ($domains as $lang_key => $domain) {
-                $domains[$lang_key] = explode('://', $domain)[1];
-            }
-        }
 
-        if ($esc_attr) {
-            foreach ($domains as $lang_key => $domain) {
-                $domains[$lang_key] = str_replace('.', '\.', $domain);
+    /**
+     * Get domains array
+     * @param string $attr
+     * @return array
+     * @since 1.0.0
+     */
+    public function get_domains($attr = 'all')
+    {
+        if (!isset($domains))
+            $domains = array();
+
+        if (!empty($this->get_languages())) {
+
+            foreach ($this->get_languages() as $lang_key => $item) {
+                $url = substr($item['url'], -1) === '/' ? substr($item['url'], 0, -1) : $item['url'];
+
+                switch ($attr) {
+                    case 'url':
+                        $domains[$lang_key] = $url;
+                        break;
+
+                    case 'domain':
+                        $domains[$lang_key] = explode('://', $url)[1];
+                        break;
+
+                    default:
+                        $domains[$lang_key] = array(
+                            'url' => $url,
+                            'domain' => explode('://', $url)[1]
+                        );
+                        break;
+                }
             }
         }
 
@@ -218,8 +250,7 @@ class Elementor_Multidomain_Support_Admin
                 break;
 
             case 'wpml':
-                // TODO: I need the WPML plugin to solve issue
-                $lang_key = 'en';
+                $lang_key = wpml_get_language_information(get_the_ID())['language_code'];
                 break;
 
             default:
@@ -240,16 +271,15 @@ class Elementor_Multidomain_Support_Admin
     {
         switch ($this->get_wpml_plugin_name()) {
             case 'polylang':
-                $lang_key = $GLOBALS['polylang']->options['default_lang'];
+                $lang_key = apply_filters('wpml_default_language', null); // ppl_default_language()
                 break;
 
             case 'wpml':
-                // TODO: I need the WPML plugin to solve issue
-                $lang_key = 'en';
+                $lang_key = apply_filters('wpml_default_language', null);
                 break;
 
             default:
-                $lang_key = 'en';
+                $lang_key = !empty(apply_filters('wpml_default_language', null)) ? apply_filters('wpml_default_language', null) : 'en';
                 break;
         }
 
@@ -350,7 +380,21 @@ class Elementor_Multidomain_Support_Admin
          * class.
          */
 
-        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/elementor-multidomain-support-admin.min.js', array('jquery'), $this->version, false);
+        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/elementor-multidomain-support-admin.min.js', array('jquery'), $this->version, true);
+
+        wp_localize_script(
+            $this->plugin_name,
+            'ELEMENTOR_MULTIDOMAIN_SUPPORT_CONFIG',
+            array(
+                "debug" => ELEMENTOR_MULTIDOMAIN_SUPPORT_DEBUG,
+                "wpml_plugin_name" => $this->get_wpml_plugin_name(),
+                "default_lang" => $this->get_default_lang(),
+                "current_lang" => $this->get_current_language(),
+                "domains" => $this->get_domains('domain'),
+                "urls" => $this->get_domains('url'),
+                "admin_url" => admin_url()
+            )
+        );
 
     }
 
