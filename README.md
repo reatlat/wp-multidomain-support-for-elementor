@@ -8,6 +8,8 @@
 [![](https://img.shields.io/badge/PHP_7.3-ready-777BB4.svg?logo=php)](https://php.net/)
 [![](https://img.shields.io/badge/WordPress-5.1.1-blue.svg?logo=wordpress)](https://wordpress.org/)
 
+![Elementor Multidomain Support](./includes/banner-1544x500.png)
+
 This plugin will help those who have a Multilanguage website with a multi-domain structure,
 the plugin will add to Elementator Page Builder the support for multi-domains structure.
 
