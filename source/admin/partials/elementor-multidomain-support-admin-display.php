@@ -65,6 +65,9 @@ $esc_domains = str_replace('.', '\.', implode('|', $domains));
                                 </div>
                             <?php endif; ?>
 
+                            <?php
+                                //TODO: create correct description and instrutions, perhaps some settings
+                            ?>
                         </div>
 
                         <div id="tab-server" class="elementor-settings-form-page">

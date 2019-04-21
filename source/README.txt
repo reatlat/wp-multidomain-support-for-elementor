@@ -8,6 +8,7 @@ Stable tag: 1.0.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
+TODO: create correct description
 Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
 
 == Description ==
