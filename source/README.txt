@@ -31,8 +31,8 @@ You need implement Server-side solution manualy to Allow Cross-Origin Resource S
 
 == Screenshots ==
 
-1. This is the second screen shot
-2. This is the second screen shot
+1. General settings tab
+2. Server settings tab
 
 == Changelog ==
 
