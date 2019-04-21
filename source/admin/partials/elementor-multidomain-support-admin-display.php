@@ -63,11 +63,26 @@ $esc_domains = str_replace('.', '\.', implode('|', $domains));
                                             '<a href="https://github.com/reatlat/wp-elementor-multidomain-support/issues" target="_blank">',
                                             '</a>'); ?></p>
                                 </div>
+                            <?php else: ?>
+                            <h2><?php _e('Good news! We support your multilingual plugin', 'elementor-multidomain-support'); ?></h2>
+                            <h4><?php printf(__('Your multilingual plugin is: %s', 'elementor-multidomain-support'), '<span class="green">'.strtoupper($plugin->get_wpml_plugin_name()).'</span>'); ?></h4>
                             <?php endif; ?>
 
-                            <?php
-                                //TODO: create correct description and instrutions, perhaps some settings
-                            ?>
+                            <h4><?php printf(__('The Elementor Multidomain Support - %sACTIVATED%s', 'elementor-multidomain-support'), '<span class="green">','</span>'); ?></h4>
+
+                            <h2><?php _e('Instalation proces', 'elementor-multidomain-support'); ?></h2>
+                            <ol>
+                                <li><?php _e('Activate multilingual plugin','elementor-multidomain-support'); ?></li>
+                                <li><?php _e('Install server-side code','elementor-multidomain-support'); ?></li>
+                                <li><a target="_blank" href="https://wordpress.org/support/view/plugin-reviews/<?php echo esc_attr($plugin->plugin_name); ?>?rate=5#postform"><?php _e('Rate plugin', 'elementor-multidomain-support'); ?></a></li>
+                                <li><a href="https://www.paypal.me/reatlat/<?php echo rand(3, 10); ?>usd" target="_blank"><?php _e('Buy me coffee', 'elementor-multidomain-support'); ?></a></li>
+                                <li><?php _e('Enjoy your Multidomain website based on Elementor Page Builder','elementor-multidomain-support'); ?></li>
+                            </ol>
+
+                            <h2><?php _e('Need help with your WordPress?', 'elementor-multidomain-support'); ?></h2>
+                            <p><?php printf(__('Contact me by %semail%s', 'elementor-multidomain-support'),
+                                    '<a target="_blank" href="https://reatlat.net/contact/?utm_source=wp_plugin&utm_medium=help_link&utm_campaign='.esc_attr($plugin->plugin_name).'">',
+                                    '</a>'); ?></p>
                         </div>
 
                         <div id="tab-server" class="elementor-settings-form-page">
