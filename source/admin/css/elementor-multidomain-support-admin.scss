@@ -19,25 +19,18 @@
         width: calc(100% - 550px);
         flex: calc(100% - 550px);
         float: left;
+        //padding-top: 30px;
 
         h4 {
           margin-bottom: 10px;
         }
 
-        .content__main__warning,
+        .content__main__notice,
         .content__main__not-founded {
-          border: 1px solid rgba($red, .4);
-          background-color: rgba($red, .1);
-          padding: 10px;
-          margin: 30px 0;
+          margin-top: 0;
         }
 
         .content__main__warning {
-          text-align: center;
-
-          * {
-            color: $red;
-          }
         }
 
         .server-config {
