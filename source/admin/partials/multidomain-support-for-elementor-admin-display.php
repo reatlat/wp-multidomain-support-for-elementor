@@ -20,7 +20,7 @@ $esc_domains = str_replace('.', '\.', implode('|', $domains));
 
     <!-- This file should primarily consist of HTML with a little bit of PHP. -->
     <div id="EMS-settings-page" class="wrap">
-        <h1><?php _e('Elementor Multidomain Support', 'multidomain-support-for-elementor'); ?></h1>
+        <h1><?php _e('Multidomain Support for Elementor', 'multidomain-support-for-elementor'); ?></h1>
 
         <div class="EMS__wrap">
 
