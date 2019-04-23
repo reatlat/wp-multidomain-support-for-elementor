@@ -188,7 +188,7 @@ class Multidomain_Support_For_Elementor_Admin
                 break;
 
             case 'wpml':
-                return apply_filters( 'wpml_current_language', null );
+                return apply_filters('wpml_current_language', null);
                 break;
 
             default:
@@ -244,13 +244,16 @@ class Multidomain_Support_For_Elementor_Admin
      */
     private function get_content_lang()
     {
+        //TODO: improve this part
+        $postID = get_the_ID() ? get_the_ID() : $_GET['post'];
+
         switch ($this->get_wpml_plugin_name()) {
             case 'polylang':
-                $lang_key = pll_get_post_language(get_the_ID());
+                $lang_key = pll_get_post_language($postID);
                 break;
 
             case 'wpml':
-                $lang_key = wpml_get_language_information(get_the_ID())['language_code'];
+                $lang_key = wpml_get_language_information($postID)['language_code'];
                 break;
 
             default:
@@ -284,6 +287,14 @@ class Multidomain_Support_For_Elementor_Admin
         }
 
         return $lang_key;
+    }
+
+
+    public function override_elementor_config($settings)
+    {
+        $settings['home_url'] = $this->get_domains('url')[$this->get_current_language()];
+
+        return $settings;
     }
 
 
@@ -328,8 +339,6 @@ class Multidomain_Support_For_Elementor_Admin
     {
         if (array_key_exists('HTTP_ORIGIN', $_SERVER)) {
             $origin = $_SERVER['HTTP_ORIGIN'];
-        } else if (array_key_exists('HTTP_REFERER', $_SERVER)) {
-            $origin = $_SERVER['HTTP_REFERER'];
         } else {
             $origin = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST']; // in theory should be IP $_SERVER['REMOTE_ADDR'];
         }
