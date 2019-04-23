@@ -12,7 +12,7 @@ services:
     volumes:
       - ./includes/docker-scripts:/docker-scripts
       - ./wp-data:/var/www/html
-      - ./source:/var/www/html/wp-content/plugins/elementor-multidomain-support
+      - ./source:/var/www/html/wp-content/plugins/multidomain-support-for-elementor
     environment:
       # WORDPRESS_DB_HOST: # ... (defaults to the IP and port of the linked mysql container)
       # WORDPRESS_DB_USER: # ... (defaults to "root")
