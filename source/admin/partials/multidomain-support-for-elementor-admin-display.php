@@ -20,15 +20,15 @@ $esc_domains = str_replace('.', '\.', implode('|', $domains));
 
     <!-- This file should primarily consist of HTML with a little bit of PHP. -->
     <div id="EMS-settings-page" class="wrap">
-        <h1><?php _e('Elementor Multidomain Support', 'elementor-multidomain-support'); ?></h1>
+        <h1><?php _e('Elementor Multidomain Support', 'multidomain-support-for-elementor'); ?></h1>
 
         <div class="EMS__wrap">
 
             <div id="elementor-settings-tabs-wrapper" class="nav-tab-wrapper EMS__wrap__navigation-tabs">
                 <a id="elementor-settings-tab-general" class="nav-tab nav-tab-active" href="#tab-general">
-                    <?php _e('General', 'elementor-multidomain-support'); ?></a>
+                    <?php _e('General', 'multidomain-support-for-elementor'); ?></a>
                 <a id="elementor-settings-tab-server" class="nav-tab" href="#tab-server">
-                    <?php _e('Server settings', 'elementor-multidomain-support'); ?></a>
+                    <?php _e('Server settings', 'multidomain-support-for-elementor'); ?></a>
             </div>
 
             <div class="EMS__wrap__content">
@@ -40,47 +40,47 @@ $esc_domains = str_replace('.', '\.', implode('|', $domains));
 
                             <?php if ($plugin->get_wpml_plugin_name() === 'not-founded') : ?>
                                 <div class="content__main__notice updated error inline">
-                                    <p><?php _e('Plugin work in universal mode, perhaps some functions will work incorrectly', 'elementor-multidomain-support'); ?></p>
+                                    <p><?php _e('Plugin work in universal mode, perhaps some functions will work incorrectly', 'multidomain-support-for-elementor'); ?></p>
                                 </div>
                                 <div class="content__main__not-founded notice notice-alt notice-error error inline">
-                                    <h2><?php _e("We don't recognize your multilingual plugin on your WP", 'elementor-multidomain-support'); ?></h2>
-                                    <h3><?php _e('We support next plugins:', 'elementor-multidomain-support'); ?></h3>
+                                    <h2><?php _e("We don't recognize your multilingual plugin on your WP", 'multidomain-support-for-elementor'); ?></h2>
+                                    <h3><?php _e('We support next plugins:', 'multidomain-support-for-elementor'); ?></h3>
                                     <ul>
                                         <li>
                                             <a href="https://polylang.pro/" target="_blank">
-                                                <?php _e('Polylang – Making WordPress multilingual', 'elementor-multidomain-support'); ?>
+                                                <?php _e('Polylang – Making WordPress multilingual', 'multidomain-support-for-elementor'); ?>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="https://wpml.org/" target="_blank">
-                                                <?php _e('WPML - The WordPress Multilingual Plugin', 'elementor-multidomain-support'); ?>
+                                                <?php _e('WPML - The WordPress Multilingual Plugin', 'multidomain-support-for-elementor'); ?>
                                             </a>
                                         </li>
                                     </ul>
 
                                     <p><?php printf(
-                                            __("Use another plugin? Open issue %shere%s.", 'elementor-multidomain-support'),
-                                            '<a href="https://github.com/reatlat/wp-elementor-multidomain-support/issues" target="_blank">',
+                                            __("Use another plugin? Open issue %shere%s.", 'multidomain-support-for-elementor'),
+                                            '<a href="https://github.com/reatlat/wp-multidomain-support-for-elementor/issues" target="_blank">',
                                             '</a>'); ?></p>
                                 </div>
                             <?php else: ?>
-                            <h2><?php _e('Good news! We support your multilingual plugin', 'elementor-multidomain-support'); ?></h2>
-                            <h4><?php printf(__('Your multilingual plugin is: %s', 'elementor-multidomain-support'), '<span class="green">'.strtoupper($plugin->get_wpml_plugin_name()).'</span>'); ?></h4>
+                            <h2><?php _e('Good news! We support your multilingual plugin', 'multidomain-support-for-elementor'); ?></h2>
+                            <h4><?php printf(__('Your multilingual plugin is: %s', 'multidomain-support-for-elementor'), '<span class="green">'.strtoupper($plugin->get_wpml_plugin_name()).'</span>'); ?></h4>
                             <?php endif; ?>
 
-                            <h4><?php printf(__('The Elementor Multidomain Support - %sACTIVATED%s', 'elementor-multidomain-support'), '<span class="green">','</span>'); ?></h4>
+                            <h4><?php printf(__('The Elementor Multidomain Support - %sACTIVATED%s', 'multidomain-support-for-elementor'), '<span class="green">','</span>'); ?></h4>
 
-                            <h2><?php _e('Instalation proces', 'elementor-multidomain-support'); ?></h2>
+                            <h2><?php _e('Instalation proces', 'multidomain-support-for-elementor'); ?></h2>
                             <ol>
-                                <li><?php _e('Activate multilingual plugin','elementor-multidomain-support'); ?></li>
-                                <li><?php _e('Install server-side code','elementor-multidomain-support'); ?></li>
-                                <li><a target="_blank" href="https://wordpress.org/support/view/plugin-reviews/<?php echo esc_attr($plugin->plugin_name); ?>?rate=5#postform"><?php _e('Rate plugin', 'elementor-multidomain-support'); ?></a></li>
-                                <li><a href="https://www.paypal.me/reatlat/<?php echo rand(3, 10); ?>usd" target="_blank"><?php _e('Buy me coffee', 'elementor-multidomain-support'); ?></a></li>
-                                <li><?php _e('Enjoy your Multidomain website based on Elementor Page Builder','elementor-multidomain-support'); ?></li>
+                                <li><?php _e('Activate multilingual plugin','multidomain-support-for-elementor'); ?></li>
+                                <li><?php _e('Install server-side code','multidomain-support-for-elementor'); ?></li>
+                                <li><a target="_blank" href="https://wordpress.org/support/view/plugin-reviews/<?php echo esc_attr($plugin->plugin_name); ?>?rate=5#postform"><?php _e('Rate plugin', 'multidomain-support-for-elementor'); ?></a></li>
+                                <li><a href="https://www.paypal.me/reatlat/<?php echo rand(3, 10); ?>usd" target="_blank"><?php _e('Buy me coffee', 'multidomain-support-for-elementor'); ?></a></li>
+                                <li><?php _e('Enjoy your Multidomain website based on Elementor Page Builder','multidomain-support-for-elementor'); ?></li>
                             </ol>
 
-                            <h2><?php _e('Need help with your WordPress?', 'elementor-multidomain-support'); ?></h2>
-                            <p><?php printf(__('Contact me by %semail%s', 'elementor-multidomain-support'),
+                            <h2><?php _e('Need help with your WordPress?', 'multidomain-support-for-elementor'); ?></h2>
+                            <p><?php printf(__('Contact me by %semail%s', 'multidomain-support-for-elementor'),
                                     '<a target="_blank" href="https://reatlat.net/contact/?utm_source=wp_plugin&utm_medium=help_link&utm_campaign='.esc_attr($plugin->plugin_name).'">',
                                     '</a>'); ?></p>
                         </div>
@@ -89,20 +89,20 @@ $esc_domains = str_replace('.', '\.', implode('|', $domains));
 
                             <div class="server-info">
                                 <h2><?php printf(
-                                        __('Your server runs on %s', 'elementor-multidomain-support'),
+                                        __('Your server runs on %s', 'multidomain-support-for-elementor'),
                                         '<span class="green">' . $plugin->get_server_name()[0] . '</span>'); ?></h2>
                             </div>
 
                             <div class="content__main__warning notice notice-alt notice-error error inline">
-                                <h1>!!! <?php _e('WARNING', 'elementor-multidomain-support'); ?> !!!</h1>
+                                <h1>!!! <?php _e('WARNING', 'multidomain-support-for-elementor'); ?> !!!</h1>
                                 <h3><?php _e('It is very important to be extremely attentive when making changes to .htaccess file or nginx.vhost. If after making changes your site stops functioning the plugin author not responsible for your changes in server configuration.', ''); ?></h3>
                             </div>
 
                             <hr>
 
-                            <h2><?php _e('Server settings', 'elementor-multidomain-support'); ?>:</h2>
-                            <h3><?php _e('Advanced solution', 'elementor-multidomain-support'); ?></h3>
-                            <h4><?php _e('Apache .htaccess file configuration', 'elementor-multidomain-support'); ?></h4>
+                            <h2><?php _e('Server settings', 'multidomain-support-for-elementor'); ?>:</h2>
+                            <h3><?php _e('Advanced solution', 'multidomain-support-for-elementor'); ?></h3>
+                            <h4><?php _e('Apache .htaccess file configuration', 'multidomain-support-for-elementor'); ?></h4>
                             <div class="server-config server-config--apache">
 <pre><code>
 # ----------------------------------------------------------------------
@@ -119,7 +119,7 @@ $esc_domains = str_replace('.', '\.', implode('|', $domains));
 </code></pre>
                             </div>
 
-                            <h4><?php _e('Configuration for NGINX server', 'elementor-multidomain-support'); ?></h4>
+                            <h4><?php _e('Configuration for NGINX server', 'multidomain-support-for-elementor'); ?></h4>
                             <div class="server-config server-config--nginx">
 <pre><code>
 # ----------------------------------------------------------------------
@@ -137,8 +137,8 @@ location ~* \.(?:css|js|ttf|ttc|eot|woff|woff2|otf|svg|gif|ico|webp|png|jpe?g)$ 
 
                             <hr>
 
-                            <h3><?php _e('Easy solution, but also will work (NOT RECOMMENDED)', 'elementor-multidomain-support'); ?></h3>
-                            <h4><?php _e('For Apache add headers to .htaccess file', 'elementor-multidomain-support'); ?></h4>
+                            <h3><?php _e('Easy solution, but also will work (NOT RECOMMENDED)', 'multidomain-support-for-elementor'); ?></h3>
+                            <h4><?php _e('For Apache add headers to .htaccess file', 'multidomain-support-for-elementor'); ?></h4>
                             <div class="server-config server-config--apache">
 <pre><code>
 # ----------------------------------------------------------------------
@@ -152,7 +152,7 @@ location ~* \.(?:css|js|ttf|ttc|eot|woff|woff2|otf|svg|gif|ico|webp|png|jpe?g)$ 
 </code></pre>
                             </div>
 
-                            <h4><?php _e('For NGINX add headers to .vhost file in any section', 'elementor-multidomain-support'); ?></h4>
+                            <h4><?php _e('For NGINX add headers to .vhost file in any section', 'multidomain-support-for-elementor'); ?></h4>
                             <div class="server-config server-config--nginx">
 <pre><code>
 # ----------------------------------------------------------------------
@@ -172,9 +172,9 @@ add_header &quot;Vary&quot; &quot;Origin&quot;;
                     <div class="ems-banner ems-banner--rate-it">
                         <a target="_blank"
                            href="https://wordpress.org/support/view/plugin-reviews/<?php echo esc_attr($plugin->plugin_name); ?>?rate=5#postform">
-                            <span class="reatlat_promote_title"><?php _e('Rate it to show your support!', 'elementor-multidomain-support'); ?></span>
+                            <span class="reatlat_promote_title"><?php _e('Rate it to show your support!', 'multidomain-support-for-elementor'); ?></span>
                             <img src="<?php echo str_replace('/admin', '', plugin_dir_url(dirname(__DIR__))); ?>admin/imgs/rateus.png"
-                                 alt="<?php _e('Rate us', 'elementor-multidomain-support'); ?>">
+                                 alt="<?php _e('Rate us', 'multidomain-support-for-elementor'); ?>">
                         </a>
                     </div>
                     <div class="ems-banner ems-banner--utm-builder">
@@ -196,13 +196,13 @@ add_header &quot;Vary&quot; &quot;Origin&quot;;
                     -->
                     <div class="ems-banner ems-banner--buy-me-coffee">
                         <a href="https://www.paypal.me/reatlat/<?php echo rand(3, 10); ?>usd" target="_blank"
-                           title="<?php _e('Buy me a coffee', 'elementor-multidomain-support'); ?>">
+                           title="<?php _e('Buy me a coffee', 'multidomain-support-for-elementor'); ?>">
                             <img src="<?php echo str_replace('/admin', '', plugin_dir_url(dirname(__DIR__))); ?>admin/imgs/buymeacoffee.png"
-                                 alt="<?php _e('Buy me a coffee', 'elementor-multidomain-support'); ?>">
+                                 alt="<?php _e('Buy me a coffee', 'multidomain-support-for-elementor'); ?>">
                         </a>
                     </div>
                     <div class="ems-banner ems-banner--author">
-                        <div class="reatlat_promote_title"><?php _e('Developed by', 'elementor-multidomain-support'); ?></div>
+                        <div class="reatlat_promote_title"><?php _e('Developed by', 'multidomain-support-for-elementor'); ?></div>
                         <div class="author-card">
                             <a target="_blank"
                                href="https://reatlat.net/?utm_source=wp_plugin&utm_medium=authorcard_sidebar&utm_campaign=<?php echo esc_attr($plugin->plugin_name); ?>">
@@ -212,15 +212,15 @@ add_header &quot;Vary&quot; &quot;Origin&quot;;
                             <h3>Alex Zappa
                                 <small>a.k.a. re[at]lat</small>
                             </h3>
-                            <h4><?php _e('Software Engineer', 'elementor-multidomain-support'); ?></h4>
+                            <h4><?php _e('Software Engineer', 'multidomain-support-for-elementor'); ?></h4>
                             <p><a target="_blank"
-                                  href="https://reatlat.net/?utm_source=wp_plugin&utm_medium=logo_sidebar&utm_campaign=<?php echo esc_attr($plugin->plugin_name); ?>"><?php _e('Homepage', 'elementor-multidomain-support'); ?></a>
+                                  href="https://reatlat.net/?utm_source=wp_plugin&utm_medium=logo_sidebar&utm_campaign=<?php echo esc_attr($plugin->plugin_name); ?>"><?php _e('Homepage', 'multidomain-support-for-elementor'); ?></a>
                                 | <a target="_blank" href="https://github.com/reatlat">GitHub</a></p>
 
                         </div>
                     </div>
                     <div class="ems-banner ems-banner--techstack">
-                        <a href="https://github.com/reatlat/wp-elementor-multidomain-support" target="_blank">
+                        <a href="https://github.com/reatlat/wp-multidomain-support-for-elementor" target="_blank">
                             <img src="<?php echo str_replace('/admin', '', plugin_dir_url(dirname(__DIR__))); ?>admin/imgs/github-octcat.png"
                                  alt="">
                         </a>

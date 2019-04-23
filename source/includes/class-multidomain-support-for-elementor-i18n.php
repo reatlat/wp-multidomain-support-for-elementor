@@ -35,7 +35,7 @@ class Elementor_Multidomain_Support_i18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'elementor-multidomain-support',
+			'multidomain-support-for-elementor',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);

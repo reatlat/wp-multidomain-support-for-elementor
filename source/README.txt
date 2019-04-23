@@ -15,7 +15,7 @@ the plugin will add to Elementator Page Builder the support for multi-domains st
 
 == Installation ==
 
-1. Upload `elementor-multidomain-support` folder to the `/wp-content/plugins/` directory
+1. Upload `multidomain-support-for-elementor` folder to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Check settings and setup server side solution
 

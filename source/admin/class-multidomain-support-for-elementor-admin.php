@@ -68,7 +68,7 @@ class Elementor_Multidomain_Support_Admin
             'Multidomain Support',
             'Multidomain Support',
             'manage_options',
-            'elementor-multidomain-support-settings',
+            'multidomain-support-for-elementor-settings',
             array($this, 'admin_settings_page')
         );
     }
@@ -82,7 +82,7 @@ class Elementor_Multidomain_Support_Admin
      */
     public function admin_settings_page()
     {
-        require_once plugin_dir_path(__FILE__) . 'partials/elementor-multidomain-support-admin-display.php';
+        require_once plugin_dir_path(__FILE__) . 'partials/multidomain-support-for-elementor-admin-display.php';
     }
 
 
@@ -298,8 +298,8 @@ class Elementor_Multidomain_Support_Admin
     {
         if (strpos($plugin_file, $this->plugin_name . '.php') !== false) {
             $new_links = array(
-                'donate' => '<a href="https://www.paypal.me/reatlat/' . rand(3, 10) . 'usd" target="_blank"><span class="dashicons dashicons-heart"></span> ' . __('Donate', 'elementor-multidomain-support') . '</a>',
-                'rateit' => '<a href="https://wordpress.org/support/view/plugin-reviews/' . $this->plugin_name . '?rate=5#postform" target="_blank"><span class="dashicons dashicons-star-filled"></span> ' . __('Rate it', 'elementor-multidomain-support') . '</a>'
+                'donate' => '<a href="https://www.paypal.me/reatlat/' . rand(3, 10) . 'usd" target="_blank"><span class="dashicons dashicons-heart"></span> ' . __('Donate', 'multidomain-support-for-elementor') . '</a>',
+                'rateit' => '<a href="https://wordpress.org/support/view/plugin-reviews/' . $this->plugin_name . '?rate=5#postform" target="_blank"><span class="dashicons dashicons-star-filled"></span> ' . __('Rate it', 'multidomain-support-for-elementor') . '</a>'
             );
             $actions = array_merge($actions, $new_links);
         }
@@ -356,7 +356,7 @@ class Elementor_Multidomain_Support_Admin
          * class.
          */
 
-        wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/elementor-multidomain-support-admin.css', array(), $this->version, 'all');
+        wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/multidomain-support-for-elementor-admin.css', array(), $this->version, 'all');
 
     }
 
@@ -380,7 +380,7 @@ class Elementor_Multidomain_Support_Admin
          * class.
          */
 
-        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/elementor-multidomain-support-admin.min.js', array('jquery'), $this->version, true);
+        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/multidomain-support-for-elementor-admin.min.js', array('jquery'), $this->version, true);
 
         wp_localize_script(
             $this->plugin_name,

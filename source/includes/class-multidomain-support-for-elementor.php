@@ -74,7 +74,7 @@ class Elementor_Multidomain_Support
         } else {
             $this->version = '1.0.0';
         }
-        $this->plugin_name = 'elementor-multidomain-support';
+        $this->plugin_name = 'multidomain-support-for-elementor';
 
         $this->load_dependencies();
         $this->set_locale();
@@ -106,24 +106,24 @@ class Elementor_Multidomain_Support
          * The class responsible for orchestrating the actions and filters of the
          * core plugin.
          */
-        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-elementor-multidomain-support-loader.php';
+        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-multidomain-support-for-elementor-loader.php';
 
         /**
          * The class responsible for defining internationalization functionality
          * of the plugin.
          */
-        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-elementor-multidomain-support-i18n.php';
+        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-multidomain-support-for-elementor-i18n.php';
 
         /**
          * The class responsible for defining all actions that occur in the admin area.
          */
-        require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-elementor-multidomain-support-admin.php';
+        require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-multidomain-support-for-elementor-admin.php';
 
         /**
          * The class responsible for defining all actions that occur in the public-facing
          * side of the site.
          */
-        require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-elementor-multidomain-support-public.php';
+        require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-multidomain-support-for-elementor-public.php';
 
         $this->loader = new Elementor_Multidomain_Support_Loader();
 
