@@ -22,7 +22,7 @@
  * @link       https://reatlat.net
  * @since      1.0.0
  *
- * @package    Elementor_Multidomain_Support
+ * @package    Multidomain_Support_For_Elementor
  */
 
 // If uninstall not called from WordPress, then exit.

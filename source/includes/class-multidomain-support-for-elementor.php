@@ -9,8 +9,8 @@
  * @link       https://reatlat.net
  * @since      1.0.0
  *
- * @package    Elementor_Multidomain_Support
- * @subpackage Elementor_Multidomain_Support/includes
+ * @package    Multidomain_Support_For_Elementor
+ * @subpackage Multidomain_Support_For_Elementor/includes
  */
 
 /**
@@ -23,11 +23,11 @@
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    Elementor_Multidomain_Support
- * @subpackage Elementor_Multidomain_Support/includes
+ * @package    Multidomain_Support_For_Elementor
+ * @subpackage Multidomain_Support_For_Elementor/includes
  * @author     Alex Zappa <reatlat@gmail.com>
  */
-class Elementor_Multidomain_Support
+class Multidomain_Support_For_Elementor
 {
 
     /**
@@ -36,7 +36,7 @@ class Elementor_Multidomain_Support
      *
      * @since    1.0.0
      * @access   protected
-     * @var      Elementor_Multidomain_Support_Loader $loader Maintains and registers all hooks for the plugin.
+     * @var      Multidomain_Support_For_Elementor_Loader $loader Maintains and registers all hooks for the plugin.
      */
     protected $loader;
 
@@ -69,8 +69,8 @@ class Elementor_Multidomain_Support
      */
     public function __construct()
     {
-        if (defined('ELEMENTOR_MULTIDOMAIN_SUPPORT_VERSION')) {
-            $this->version = ELEMENTOR_MULTIDOMAIN_SUPPORT_VERSION;
+        if (defined('Multidomain_Support_For_Elementor_VERSION')) {
+            $this->version = Multidomain_Support_For_Elementor_VERSION;
         } else {
             $this->version = '1.0.0';
         }
@@ -88,10 +88,10 @@ class Elementor_Multidomain_Support
      *
      * Include the following files that make up the plugin:
      *
-     * - Elementor_Multidomain_Support_Loader. Orchestrates the hooks of the plugin.
-     * - Elementor_Multidomain_Support_i18n. Defines internationalization functionality.
-     * - Elementor_Multidomain_Support_Admin. Defines all hooks for the admin area.
-     * - Elementor_Multidomain_Support_Public. Defines all hooks for the public side of the site.
+     * - Multidomain_Support_For_Elementor_Loader. Orchestrates the hooks of the plugin.
+     * - Multidomain_Support_For_Elementor_i18n. Defines internationalization functionality.
+     * - Multidomain_Support_For_Elementor_Admin. Defines all hooks for the admin area.
+     * - Multidomain_Support_For_Elementor_Public. Defines all hooks for the public side of the site.
      *
      * Create an instance of the loader which will be used to register the hooks
      * with WordPress.
@@ -125,14 +125,14 @@ class Elementor_Multidomain_Support
          */
         require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-multidomain-support-for-elementor-public.php';
 
-        $this->loader = new Elementor_Multidomain_Support_Loader();
+        $this->loader = new Multidomain_Support_For_Elementor_Loader();
 
     }
 
     /**
      * Define the locale for this plugin for internationalization.
      *
-     * Uses the Elementor_Multidomain_Support_i18n class in order to set the domain and to register the hook
+     * Uses the Multidomain_Support_For_Elementor_i18n class in order to set the domain and to register the hook
      * with WordPress.
      *
      * @since    1.0.0
@@ -141,7 +141,7 @@ class Elementor_Multidomain_Support
     private function set_locale()
     {
 
-        $plugin_i18n = new Elementor_Multidomain_Support_i18n();
+        $plugin_i18n = new Multidomain_Support_For_Elementor_i18n();
 
         $this->loader->add_action('plugins_loaded', $plugin_i18n, 'load_plugin_textdomain');
 
@@ -157,7 +157,7 @@ class Elementor_Multidomain_Support
     private function define_admin_hooks()
     {
 
-        $plugin_admin = new Elementor_Multidomain_Support_Admin($this->get_plugin_name(), $this->get_version());
+        $plugin_admin = new Multidomain_Support_For_Elementor_Admin($this->get_plugin_name(), $this->get_version());
 
         $this->loader->add_action('admin_menu', $plugin_admin, 'admin_menu', 700); // set after all elementor items :)
         $this->loader->add_action('admin_bar_menu', $plugin_admin, 'update_admin_bar_menu', 210);
@@ -180,7 +180,7 @@ class Elementor_Multidomain_Support
     private function define_public_hooks()
     {
 
-        $plugin_public = new Elementor_Multidomain_Support_Public($this->get_plugin_name(), $this->get_version());
+        $plugin_public = new Multidomain_Support_For_Elementor_Public($this->get_plugin_name(), $this->get_version());
 
         $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
         $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
@@ -214,7 +214,7 @@ class Elementor_Multidomain_Support
      * The reference to the class that orchestrates the hooks with the plugin.
      *
      * @since     1.0.0
-     * @return    Elementor_Multidomain_Support_Loader    Orchestrates the hooks of the plugin.
+     * @return    Multidomain_Support_For_Elementor_Loader    Orchestrates the hooks of the plugin.
      */
     public function get_loader()
     {

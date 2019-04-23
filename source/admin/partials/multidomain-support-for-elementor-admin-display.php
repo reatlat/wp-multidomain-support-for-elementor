@@ -8,11 +8,11 @@
  * @link       https://reatlat.net
  * @since      1.0.0
  *
- * @package    Elementor_Multidomain_Support
- * @subpackage Elementor_Multidomain_Support/admin/partials
+ * @package    Multidomain_Support_For_Elementor
+ * @subpackage Multidomain_Support_For_Elementor/admin/partials
  */
 
-$plugin = new Elementor_Multidomain_Support_Admin($this->plugin_name, $this->version);
+$plugin = new Multidomain_Support_For_Elementor_Admin($this->plugin_name, $this->version);
 
 $domains = $plugin->get_domains('domain');
 $esc_domains = str_replace('.', '\.', implode('|', $domains));

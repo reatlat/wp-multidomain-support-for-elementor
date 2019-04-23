@@ -9,8 +9,8 @@
  * @link       https://reatlat.net
  * @since      1.0.0
  *
- * @package    Elementor_Multidomain_Support
- * @subpackage Elementor_Multidomain_Support/includes
+ * @package    Multidomain_Support_For_Elementor
+ * @subpackage Multidomain_Support_For_Elementor/includes
  */
 
 /**
@@ -20,11 +20,11 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Elementor_Multidomain_Support
- * @subpackage Elementor_Multidomain_Support/includes
+ * @package    Multidomain_Support_For_Elementor
+ * @subpackage Multidomain_Support_For_Elementor/includes
  * @author     Alex Zappa <reatlat@gmail.com>
  */
-class Elementor_Multidomain_Support_i18n {
+class Multidomain_Support_For_Elementor_i18n {
 
 
 	/**

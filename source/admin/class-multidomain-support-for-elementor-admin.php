@@ -6,8 +6,8 @@
  * @link       https://reatlat.net
  * @since      1.0.0
  *
- * @package    Elementor_Multidomain_Support
- * @subpackage Elementor_Multidomain_Support/admin
+ * @package    Multidomain_Support_For_Elementor
+ * @subpackage Multidomain_Support_For_Elementor/admin
  */
 
 /**
@@ -16,11 +16,11 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the admin-specific stylesheet and JavaScript.
  *
- * @package    Elementor_Multidomain_Support
- * @subpackage Elementor_Multidomain_Support/admin
+ * @package    Multidomain_Support_For_Elementor
+ * @subpackage Multidomain_Support_For_Elementor/admin
  * @author     Alex Zappa <reatlat@gmail.com>
  */
-class Elementor_Multidomain_Support_Admin
+class Multidomain_Support_For_Elementor_Admin
 {
 
     /**
@@ -348,10 +348,10 @@ class Elementor_Multidomain_Support_Admin
          * This function is provided for demonstration purposes only.
          *
          * An instance of this class should be passed to the run() function
-         * defined in Elementor_Multidomain_Support_Loader as all of the hooks are defined
+         * defined in Multidomain_Support_For_Elementor_Loader as all of the hooks are defined
          * in that particular class.
          *
-         * The Elementor_Multidomain_Support_Loader will then create the relationship
+         * The Multidomain_Support_For_Elementor_Loader will then create the relationship
          * between the defined hooks and the functions defined in this
          * class.
          */
@@ -372,10 +372,10 @@ class Elementor_Multidomain_Support_Admin
          * This function is provided for demonstration purposes only.
          *
          * An instance of this class should be passed to the run() function
-         * defined in Elementor_Multidomain_Support_Loader as all of the hooks are defined
+         * defined in Multidomain_Support_For_Elementor_Loader as all of the hooks are defined
          * in that particular class.
          *
-         * The Elementor_Multidomain_Support_Loader will then create the relationship
+         * The Multidomain_Support_For_Elementor_Loader will then create the relationship
          * between the defined hooks and the functions defined in this
          * class.
          */
@@ -384,9 +384,9 @@ class Elementor_Multidomain_Support_Admin
 
         wp_localize_script(
             $this->plugin_name,
-            'ELEMENTOR_MULTIDOMAIN_SUPPORT_CONFIG',
+            'MULTIDOMAIN_SUPPORT_FOR_ELEMENTOR_CONFIG',
             array(
-                "debug" => ELEMENTOR_MULTIDOMAIN_SUPPORT_DEBUG,
+                "debug" => MULTIDOMAIN_SUPPORT_FOR_ELEMENTOR_DEBUG,
                 "wpml_plugin_name" => $this->get_wpml_plugin_name(),
                 "default_lang" => $this->get_default_lang(),
                 "current_lang" => $this->get_current_language(),

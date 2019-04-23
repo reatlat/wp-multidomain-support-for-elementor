@@ -134,7 +134,7 @@
 
     }
 
-    window.EMS = new EMS(ELEMENTOR_MULTIDOMAIN_SUPPORT_CONFIG);
+    window.EMS = new EMS(MULTIDOMAIN_SUPPORT_FOR_ELEMENTOR_CONFIG);
 
     window.EMS._init();
 

@@ -10,10 +10,10 @@
  *
  * @link              https://reatlat.net
  * @since             1.0.0
- * @package           Elementor_Multidomain_Support
+ * @package           Multidomain_Support_For_Elementor
  *
  * @wordpress-plugin
- * Plugin Name:       Elementor Multidomain support
+ * Plugin Name:       Multidomain support for Elementor
  * Plugin URI:        https://github.com/reatlat/wp-multidomain-support-for-elementor
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
  * Version:           1.0.0
@@ -36,36 +36,36 @@ if (!defined('WPINC')) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define('ELEMENTOR_MULTIDOMAIN_SUPPORT_VERSION', '1.0.0');
+define('MULTIDOMAIN_SUPPORT_FOR_ELEMENTOR_VERSION', '1.0.0');
 
-if (defined('SCRIPT_DEBUG') && SCRIPT_DEBUG && !defined('ELEMENTOR_MULTIDOMAIN_SUPPORT_DEBUG'))
-    define('ELEMENTOR_MULTIDOMAIN_SUPPORT_DEBUG', true);
+if (defined('SCRIPT_DEBUG') && SCRIPT_DEBUG && !defined('MULTIDOMAIN_SUPPORT_FOR_ELEMENTOR_DEBUG'))
+    define('MULTIDOMAIN_SUPPORT_FOR_ELEMENTOR_DEBUG', true);
 
-if (!defined('ELEMENTOR_MULTIDOMAIN_SUPPORT_DEBUG'))
-    define('ELEMENTOR_MULTIDOMAIN_SUPPORT_DEBUG', false);
+if (!defined('MULTIDOMAIN_SUPPORT_FOR_ELEMENTOR_DEBUG'))
+    define('MULTIDOMAIN_SUPPORT_FOR_ELEMENTOR_DEBUG', false);
 
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-multidomain-support-for-elementor-activator.php
  */
-function activate_elementor_multidomain_support()
+function activate_Multidomain_Support_For_Elementor()
 {
     require_once plugin_dir_path(__FILE__) . 'includes/class-multidomain-support-for-elementor-activator.php';
-    Elementor_Multidomain_Support_Activator::activate();
+    Multidomain_Support_For_Elementor_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-multidomain-support-for-elementor-deactivator.php
  */
-function deactivate_elementor_multidomain_support()
+function deactivate_Multidomain_Support_For_Elementor()
 {
     require_once plugin_dir_path(__FILE__) . 'includes/class-multidomain-support-for-elementor-deactivator.php';
-    Elementor_Multidomain_Support_Deactivator::deactivate();
+    Multidomain_Support_For_Elementor_Deactivator::deactivate();
 }
 
-register_activation_hook(__FILE__, 'activate_elementor_multidomain_support');
-register_deactivation_hook(__FILE__, 'deactivate_elementor_multidomain_support');
+register_activation_hook(__FILE__, 'activate_Multidomain_Support_For_Elementor');
+register_deactivation_hook(__FILE__, 'deactivate_Multidomain_Support_For_Elementor');
 
 /**
  * The core plugin class that is used to define internationalization,
@@ -82,12 +82,12 @@ require plugin_dir_path(__FILE__) . 'includes/class-multidomain-support-for-elem
  *
  * @since    1.0.0
  */
-function run_elementor_multidomain_support()
+function run_Multidomain_Support_For_Elementor()
 {
 
-    $plugin = new Elementor_Multidomain_Support();
+    $plugin = new Multidomain_Support_For_Elementor();
     $plugin->run();
 
 }
 
-run_elementor_multidomain_support();
+run_Multidomain_Support_For_Elementor();

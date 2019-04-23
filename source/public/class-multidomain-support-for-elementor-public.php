@@ -6,8 +6,8 @@
  * @link       https://reatlat.net
  * @since      1.0.0
  *
- * @package    Elementor_Multidomain_Support
- * @subpackage Elementor_Multidomain_Support/public
+ * @package    Multidomain_Support_For_Elementor
+ * @subpackage Multidomain_Support_For_Elementor/public
  */
 
 /**
@@ -16,11 +16,11 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the public-facing stylesheet and JavaScript.
  *
- * @package    Elementor_Multidomain_Support
- * @subpackage Elementor_Multidomain_Support/public
+ * @package    Multidomain_Support_For_Elementor
+ * @subpackage Multidomain_Support_For_Elementor/public
  * @author     Alex Zappa <reatlat@gmail.com>
  */
-class Elementor_Multidomain_Support_Public {
+class Multidomain_Support_For_Elementor_Public {
 
 	/**
 	 * The ID of this plugin.
@@ -65,10 +65,10 @@ class Elementor_Multidomain_Support_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Elementor_Multidomain_Support_Loader as all of the hooks are defined
+		 * defined in Multidomain_Support_For_Elementor_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Elementor_Multidomain_Support_Loader will then create the relationship
+		 * The Multidomain_Support_For_Elementor_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
@@ -88,10 +88,10 @@ class Elementor_Multidomain_Support_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Elementor_Multidomain_Support_Loader as all of the hooks are defined
+		 * defined in Multidomain_Support_For_Elementor_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Elementor_Multidomain_Support_Loader will then create the relationship
+		 * The Multidomain_Support_For_Elementor_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */

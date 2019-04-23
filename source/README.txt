@@ -11,7 +11,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 == Description ==
 
 This plugin will help those who have a Multilanguage website with a multi-domain structure,
-the plugin will add to Elementator Page Builder the support for multi-domains structure.
+the plugin will add to Elementor Page Builder the support for multi-domains structure.
 
 == Installation ==
 

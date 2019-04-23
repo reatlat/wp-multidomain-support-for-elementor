@@ -6,8 +6,8 @@
  * @link       https://reatlat.net
  * @since      1.0.0
  *
- * @package    Elementor_Multidomain_Support
- * @subpackage Elementor_Multidomain_Support/includes
+ * @package    Multidomain_Support_For_Elementor
+ * @subpackage Multidomain_Support_For_Elementor/includes
  */
 
 /**
@@ -17,11 +17,11 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Elementor_Multidomain_Support
- * @subpackage Elementor_Multidomain_Support/includes
+ * @package    Multidomain_Support_For_Elementor
+ * @subpackage Multidomain_Support_For_Elementor/includes
  * @author     Alex Zappa <reatlat@gmail.com>
  */
-class Elementor_Multidomain_Support_Loader {
+class Multidomain_Support_For_Elementor_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.
