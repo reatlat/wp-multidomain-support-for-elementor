@@ -82,7 +82,7 @@ class Multidomain_Support_For_Elementor_Admin
      */
     public function admin_settings_page()
     {
-        require_once plugin_dir_path(__FILE__) . 'partials/multidomain-support-for-elementor-admin-display.php';
+        require_once plugin_dir_path(__FILE__) . 'partials/admin--display.php';
     }
 
 
