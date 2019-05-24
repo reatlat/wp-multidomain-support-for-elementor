@@ -15,6 +15,7 @@ the plugin will add to Elementor Page Builder the support for multi-domains stru
 
 #### Here is a video review of how it works
 [![Multidomain Support for Elementor](https://img.youtube.com/vi/uDLS1Hjj3-U/0.jpg)](https://www.youtube.com/watch?v=uDLS1Hjj3-U)
+
 Big thanks to Brad Johnson, for a great video tutorial.
 
 ## Installation
