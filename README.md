@@ -13,6 +13,10 @@
 This plugin will help those who have a Multilanguage website with a multi-domain structure,
 the plugin will add to Elementor Page Builder the support for multi-domains structure.
 
+#### Here is a video review of how it works
+[![Multidomain Support for Elementor](https://img.youtube.com/vi/uDLS1Hjj3-U/0.jpg)](https://www.youtube.com/watch?v=uDLS1Hjj3-U)
+Big thanks to Brad Johnson, for a great video tutorial.
+
 ## Installation
 
 1. Upload `multidomain-support-for-elementor` folder to the `/wp-content/plugins/` directory
