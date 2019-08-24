@@ -166,8 +166,9 @@ class Multidomain_Support_For_Elementor
         $this->loader->add_filter('plugin_action_links', $plugin_admin,'plugin_action_links', 10, 5);
         $this->loader->add_filter('plugin_row_meta', $plugin_admin, 'plugin_row_meta', 10, 3);
         $this->loader->add_filter('elementor/admin/localize_settings', $plugin_admin, 'override_elementor_config', 10, 1);
+        $this->loader->add_filter('allowed_http_origins', $plugin_admin, 'add_allowed_origins', 10, 1);
         $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
-        $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+        $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
 
     }
 

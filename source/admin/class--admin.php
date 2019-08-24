@@ -354,6 +354,24 @@ class Multidomain_Support_For_Elementor_Admin
         return $origin;
     }
 
+
+    /**
+     * Add all domains to allowed origins
+     * @param $origins
+     * @return array
+     * @since 1.1.0
+     */
+    public function add_allowed_origins($origins)
+    {
+        $domains = $this->get_domains('domain');
+        foreach ($domains as $domain) {
+            $origins[] = 'http://' . $domain;
+            $origins[] = 'https://' . $domain;
+        }
+
+        return array_values(array_unique($origins));
+    }
+
     /**
      * Register the stylesheets for the admin area.
      *
