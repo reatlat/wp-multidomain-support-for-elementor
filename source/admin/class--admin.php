@@ -179,6 +179,10 @@ class Multidomain_Support_For_Elementor_Admin
         return $languages;
     }
 
+    private function get_locale_code()
+    {
+        return substr(get_locale(), 0, 2);
+    }
 
     private function get_current_language()
     {
@@ -192,7 +196,7 @@ class Multidomain_Support_For_Elementor_Admin
                 break;
 
             default:
-                return 'en';
+                return $this->get_locale_code();
                 break;
         }
     }
@@ -257,7 +261,7 @@ class Multidomain_Support_For_Elementor_Admin
                 break;
 
             default:
-                $lang_key = 'en';
+                $lang_key = $this->get_locale_code();
                 break;
         }
 
@@ -292,8 +296,13 @@ class Multidomain_Support_For_Elementor_Admin
 
     public function override_elementor_config($settings)
     {
-        $settings['home_url'] = $this->get_domains('url')[$this->get_current_language()];
-
+        if ($this->get_wpml_plugin_name() !== 'not-founded') {
+            $lang = $this->get_current_language();
+            $url = $this->get_domains('url');
+            $url = isset($url[$lang]) ? $url[$lang] : '';
+            if (!empty($url))
+                $settings['home_url'] = $url;
+        }
         return $settings;
     }
 
