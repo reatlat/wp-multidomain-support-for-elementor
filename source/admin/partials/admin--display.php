@@ -29,6 +29,8 @@ $esc_domains = str_replace('.', '\.', implode('|', $domains));
                     <?php _e('General', 'multidomain-support-for-elementor'); ?></a>
                 <a id="elementor-settings-tab-server" class="nav-tab" href="#tab-server">
                     <?php _e('Server settings', 'multidomain-support-for-elementor'); ?></a>
+                <a id="elementor-settings-tab-wp-config" class="nav-tab" href="#tab-wp-config">
+                    <?php _e('WP-Config', 'multidomain-support-for-elementor'); ?></a>
             </div>
 
             <div class="EMS__wrap__content">
@@ -166,7 +168,44 @@ add_header &quot;Vary&quot; &quot;Origin&quot;;
 
                         </div>
 
-                </div>
+                        <div id="tab-wp-config" class="elementor-settings-form-page">
+
+                            <h2><?php _e('WordPress setting', 'multidomain-support-for-elementor'); ?></h2>
+                            <p><?php _e('Include onfiguration below to your wp-config.php file before the line', 'multidomain-support-for-elementor'); ?></p>
+                            <p>/* That's all, stop editing! Happy publishing. */</p>
+                            
+                            <div class="server-config server-config--wordpress">
+
+<pre><code>
+/* BEGIN - Multidomain support for WordPress */
+$hostname = $_SERVER['HTTP_HOST'];
+
+if(!empty($_SERVER['HTTP_X_FORWARDED_HOST'])) {
+    $hostname = $_SERVER['HTTP_X_FORWARDED_HOST'];
+}
+
+$hostname = rtrim($hostname, '/');
+
+$allowed = <?php echo json_encode(array_values($domains)); ?>;
+
+if (!in_array($hostname, $allowed)) {
+    $hostname = "<?php echo array_values($domains)[0]; ?>";
+}
+
+$protocol = (!empty($_SERVER['HTTPS']) ||
+             !empty($_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') ?
+             'https://' : 'http://';
+
+$siteUrl = $protocol . $hostname;
+
+define('WP_HOME', $siteUrl);
+define('WP_SITEURL', $siteUrl);
+/* END - Multidomain support for WordPress */
+
+</code></pre>
+                            </div>
+                        </div>
+                    </div>
 
                 <div class="content__sidebar">
                     <div class="ems-banner ems-banner--rate-it">
