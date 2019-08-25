@@ -173,7 +173,7 @@ add_header &quot;Vary&quot; &quot;Origin&quot;;
                             <h2><?php _e('WordPress setting', 'multidomain-support-for-elementor'); ?></h2>
                             <p><?php _e('Include onfiguration below to your wp-config.php file before the line', 'multidomain-support-for-elementor'); ?></p>
                             <p>/* That's all, stop editing! Happy publishing. */</p>
-                            
+
                             <div class="server-config server-config--wordpress">
 
 <pre><code>
@@ -193,7 +193,7 @@ if (!in_array($hostname, $allowed)) {
 }
 
 $protocol = (!empty($_SERVER['HTTPS']) ||
-             !empty($_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') ?
+             !empty($_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https')) ?
              'https://' : 'http://';
 
 $siteUrl = $protocol . $hostname;
