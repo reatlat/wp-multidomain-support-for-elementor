@@ -16,7 +16,7 @@
  * Plugin Name:       Multidomain support for Elementor
  * Plugin URI:        https://github.com/reatlat/wp-multidomain-support-for-elementor
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            Alex Zappa a.k.a. re[at]lat
  * Author URI:        https://reatlat.net
  * Donate link:       https://www.paypal.me/reatlat/5usd
@@ -36,7 +36,7 @@ if (!defined('WPINC')) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define('MULTIDOMAIN_SUPPORT_FOR_ELEMENTOR_VERSION', '1.0.1');
+define('MULTIDOMAIN_SUPPORT_FOR_ELEMENTOR_VERSION', '1.0.2');
 
 if (defined('SCRIPT_DEBUG') && SCRIPT_DEBUG && !defined('MULTIDOMAIN_SUPPORT_FOR_ELEMENTOR_DEBUG'))
     define('MULTIDOMAIN_SUPPORT_FOR_ELEMENTOR_DEBUG', true);
